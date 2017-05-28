@@ -19,7 +19,7 @@ while getopts 'd:e:v:' flag; do
 done
 
 # prep npm package
-cd $eleosDir;
+cd ${eleosDir}
 npm install
 $(npm bin)/electron-rebuild
 
@@ -29,14 +29,16 @@ rm -f *exe zcld* zcl-*
 rm -f *exe zcashd* zcash-*
 
 # copy MacOS daemons
-cp $daemonDir/zcld-mac ./
-cp $daemonDir/zcashd-mac ./
-cp $daemonDir/zcl-cli ./
-cp $daemonDir/zcash-cli ./
+cp ${daemonDir}/zcld-mac ./
+cp ${daemonDir}/zcl-cli ./
+cp ${daemonDir}/zcashd-mac ./
+cp ${daemonDir}/zcash-cli ./
+#cp ${daemonDir}/zend-mac ./
+#cp ${daemonDir}/zen-cli ./
 
 # build .app
 cd ../
-electron-packager ./eleos eleos --app-version=${version} --icon=${scriptDir}/zclassic.icns --overwrite --osx-sign="Joshua Yabut (WWCFLJ762K)"
+electron-packager ./eleos eleos --app-version=${version} --icon=${scriptDir}/zen.icns --overwrite --osx-sign="Joshua Yabut (WWCFLJ762K)"
 
 # fix dylibs
 dylibbundler -od -b -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zcashd-mac -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zcash-cli -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zcld-mac -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zcl-cli -d ./eleos-darwin-x64/eleos.app/Contents/libs/ -p @executable_path/../../libs/
