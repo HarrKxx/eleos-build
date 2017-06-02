@@ -5,7 +5,7 @@ version="0.0.5"
 
 #-------------------------------------------------------------------------------------------
 echo "Building windows binaries ..."
-./build-win.sh -e ../eleos/ -d ../eleos-daemons/v${version}/ -v ${version}
+./build-win.sh -e ../eleos/ -d ../eleos-daemons/v${version} -v ${version}
 
 #-------------------------------------------------------------------------------------------
 echo "Building mac binaries ..."

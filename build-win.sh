@@ -27,14 +27,15 @@ $(npm bin)/electron-rebuild
 rm -f eleos.htpasswd
 rm -f *exe zcld* zcl-*
 rm -f *exe zcashd* zcash-*
+rm -f *exe zend* zen-*
 
 # copy Win64 daemons
 cp ${daemonDir}/zcash-cli.exe ./
 cp ${daemonDir}/zcashd.exe ./
 cp ${daemonDir}/zcl-cli.exe ./
 cp ${daemonDir}/zcld.exe ./
-#cp ${daemonDir}/zen-cli.exe ./
-#cp ${daemonDir}/zend.exe ./
+cp ${daemonDir}/zen-cli.exe ./
+cp ${daemonDir}/zend.exe ./
 
 # build .app
 cd ../
