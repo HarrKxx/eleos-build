@@ -10,6 +10,3 @@ echo "Building windows binaries ..."
 echo "-------------------------------------------------------------------------------------------"
 echo "Building mac binaries ..."
 ./build-mac.sh -e ../eleos/ -d ../eleos-daemons/v${version} -v ${version}
-
-echo "-------------------------------------------------------------------------------------------"
-echo "Building unix binaries ..."
