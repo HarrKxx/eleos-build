@@ -43,7 +43,7 @@ cd ../
 electron-packager ./eleos eleos --app-version=${version} --icon=${scriptDir}/zen.icns --overwrite
 
 # fix dylibs
-dylibbundler -od -b -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zcashd-mac -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zcash-cli -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zcld-mac -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zcl-cli -d ./eleos-darwin-x64/eleos.app/Contents/libs/ -p @executable_path/../../libs/
+dylibbundler -od -b -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zcashd-mac -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zcash-cli -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zcld-mac -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zcl-cli -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zend-mac -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zen-cli -d ./eleos-darwin-x64/eleos.app/Contents/libs/ -p @executable_path/../../libs/
 
 # codesign executables
 cd ./eleos-darwin-x64/eleos.app/Contents/Resources/app/
