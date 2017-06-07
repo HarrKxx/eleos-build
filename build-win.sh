@@ -40,3 +40,6 @@ cp ${daemonDir}/zend.exe ./
 # build .app
 cd ../
 electron-packager ./eleos eleos --app-version=${version} --arch=x64 --platform=win32 --icon=./eleos-build/zen.ico --overwrite
+
+zip -r eleos-win32-x64-v${version}.zip ./eleos-win32-x64
+rm -r ./eleos-win32-x64

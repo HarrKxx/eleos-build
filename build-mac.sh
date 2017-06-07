@@ -43,10 +43,18 @@ cd ../
 electron-packager ./eleos eleos --app-version=${version} --icon=${scriptDir}/zen.icns --overwrite
 
 # fix dylibs
-dylibbundler -od -b -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zcashd-mac -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zcash-cli -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zcld-mac -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zcl-cli -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zend-mac -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zen-cli -d ./eleos-darwin-x64/eleos.app/Contents/libs/ -p @executable_path/../../libs/
+#./eleos-daemons/v0.0.6/libs/
+dylibbundler -od -b -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zcashd-mac \
+                    -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zcash-cli \
+                    -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zcld-mac \
+                    -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zcl-cli \
+                    -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zend-mac \
+                    -x ./eleos-darwin-x64/eleos.app/Contents/Resources/app/zen-cli \
+                    -d ./eleos-darwin-x64/eleos.app/Contents/libs/ \
+                    -p @executable_path/../../libs/
 
 # codesign executables
-cd ./eleos-darwin-x64/eleos.app/Contents/Resources/app/
+#cd ./eleos-darwin-x64/eleos.app/Contents/Resources/app/
 #codesign --force --sign "Developer ID Application: Joshua Yabut (WWCFLJ762K)" zcld-mac
 #codesign --force --sign "Developer ID Application: Joshua Yabut (WWCFLJ762K)" zcl-cli
 #codesign --force --sign "Developer ID Application: Joshua Yabut (WWCFLJ762K)" zcashd-mac
@@ -62,5 +70,9 @@ cd ${scriptDir}/../
 #codesign --force --deep --sign "Joshua Yabut (WWCFLJ762K)" eleos-darwin-x64/eleos.app/
 
 # build .dmg and codesign
-electron-installer-dmg ${scriptDir}/../eleos-darwin-x64/eleos.app/ eleos-macos-v${version} --background=${scriptDir}/eleos_bg.png --overwrite
+electron-installer-dmg ${scriptDir}/../eleos-darwin-x64/eleos.app/ \
+                       eleos-macos-v${version} \
+                       --background=${scriptDir}/eleos_bg.png \
+                       --icon=${scriptDir}/zen.icns \
+                       --overwrite
 #codesign --force --sign "Joshua Yabut (WWCFLJ762K)" eleos-macos-v${version}.dmg
