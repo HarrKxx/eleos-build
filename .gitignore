@@ -1,3 +1,9 @@
 .DS_store
 *exe
 .idea/
+*.deb
+eleos-linux-x64/
+eleos-win32-x64/
+eleos-darwin-x64/
+node_modules/
+

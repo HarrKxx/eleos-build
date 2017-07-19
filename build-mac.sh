@@ -70,9 +70,11 @@ cd ${scriptDir}/../
 #codesign --force --deep --sign "Joshua Yabut (WWCFLJ762K)" eleos-darwin-x64/eleos.app/
 
 # build .dmg and codesign
-electron-installer-dmg ${scriptDir}/../eleos-darwin-x64/eleos.app/ \
+electron-installer-dmg ${scriptDir}/../eleos-darwin-x64-v${version}/eleos.app/ \
                        eleos-macos-v${version} \
                        --background=${scriptDir}/eleos_bg.png \
                        --icon=${scriptDir}/zen.icns \
                        --overwrite
 #codesign --force --sign "Joshua Yabut (WWCFLJ762K)" eleos-macos-v${version}.dmg
+
+rm -r -f ./eleos-darwin-x64-v${version}

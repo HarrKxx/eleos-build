@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-#example: ./build-win.sh -e ../eleos/ -d ../eleos-daemons/v0.0.4/ -v 0.0.4
 
 set -e
 
@@ -37,9 +36,18 @@ cp ${daemonDir}/zcld.exe ./
 cp ${daemonDir}/zen-cli.exe ./
 cp ${daemonDir}/zend.exe ./
 
-# build .app
-cd ../
-electron-packager ./eleos eleos --app-version=${version} --arch=x64 --platform=win32 --icon=./eleos-build/zen.ico --overwrite
 
-zip -r eleos-win32-x64-v${version}.zip ./eleos-win32-x64
-rm -r ./eleos-win32-x64
+# build .app
+electron-packager ${scriptDir}/../eleos eleos --out=${scriptDir} --app-version=${version} --arch=x64 --platform=win32 --icon=${scriptDir}/zen.ico --overwrite
+
+# build installer
+#cd ${scriptDir}
+#echo ${scriptDir}
+electron-installer-windows --src ${scriptDir}/eleos-win32-x64/ --dest ${scriptDir}
+
+#rm -r -f ./eleos-win32-x64
+
+#zip -r eleos-win32-x64-v${version}.zip ./eleos-win32-x64
+
+
+
